@@ -31,22 +31,36 @@
             padding: 0 15px;
         }
 
-         <!-- Header avec le logo de La Poste -->
+    /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header avec le logo de La Poste -->
     <header class="header">
         <div class="header-logo">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNRWOxnzBsWlb1C4T1GsD2ONa20CEMYVL7Ew&s" alt="Logo La Poste">
         </div>
     </header>
-
-        /* Texte "LA POSTE" */
-        .logo-text {
-            position: absolute;
-            bottom: 0;
-            left: 100px;
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--laposte-blue);
-            font-family: 'Arial', sans-serif;
         }
 
         /* Tracking Card */
