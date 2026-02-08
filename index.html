@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problème de livraison | La Poste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --laposte-yellow: #FFD700;
+            --laposte-blue: #0033A0;
+            --laposte-dark-blue: #00205B;
+            --laposte-light-gray: #F2F2F2;
+            --laposte-gray: #7D7D7D;
+            --error-red: #E2001A;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--laposte-light-gray);
+            margin: 0;
+            padding: 0;
+            color: var(--black);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--laposte-yellow);
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        /* Le logo La Poste */
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            width: 250px;
+            height: 90px;
+            background-color: var(--laposte-yellow);
+        }
+
+        /* Partie de la flèche */
+        .logo-arrow {
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            width: 100px;
+            height: 20px;
+            background-color: var(--laposte-blue);
+            transform: rotate(45deg);
+        }
+
+        /* Partie de la flèche sous l'élément horizontal */
+        .logo-arrow-bottom {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 50px;
+            height: 20px;
+            background-color: var(--laposte-blue);
+            transform: rotate(-45deg);
+        }
+
+        /* Texte "LA POSTE" */
+        .logo-text {
+            position: absolute;
+            bottom: 0;
+            left: 100px;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--laposte-blue);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Tracking Card */
+        .tracking-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .tracking-header {
+            background-color: var(--error-red);
+            color: var(--white);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tracking-header h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .tracking-header .status {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .tracking-header .status i {
+            margin-right: 8px;
+        }
+
+        .tracking-body {
+            padding: 25px;
+        }
+
+        .alert-box {
+            background-color: #FEF0D0; /* Jaune clair spécifique de La Poste pour les alertes */
+            border-left: 5px solid var(--laposte-yellow);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+
+        .alert-box h2 {
+            color: var(--black);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .alert-box h2 i {
+            color: var(--error-red);
+            margin-right: 10px;
+        }
+
+        .alert-box p {
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .alert-box strong {
+            color: var(--error-red);
+        }
+
+        .action-button-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        #renewBtn {
+            background-color: var(--laposte-yellow);
+            color: var(--laposte-dark-blue);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-decoration: none; /* Important pour un lien stylé */
+            display: inline-block;
+        }
+
+        #renewBtn:hover {
+            background-color: #FFC700; /* Un jaune un peu plus foncé au survol */
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--laposte-gray);
+            background-color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-arrow"></div>
+            <div class="logo-arrow-bottom"></div>
+            <div class="logo-text">LA POSTE</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tracking-card">
+            <div class="tracking-header">
+                <h1>Un problème concernant votre envoi</h1>
+                <div class="status">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Échec de livraison</span>
+                </div>
+            </div>
+            <div class="tracking-body">
+                <div class="alert-box">
+                    <h2><i class="fas fa-truck"></i> Tentative de livraison infructueuse</h2>
+                    <p>Nous n'avons pas pu vous livrer votre colis. Une nouvelle tentative est nécessaire.</p>
+                    <p>Pour garantir la réception de votre colis, merci de confirmer vos informations de livraison et de régler les frais de port avant le <strong>15 février 2026</strong>.</p>
+                </div>
+                <div class="action-button-container">
+                    <a href="coordonnees.html" id="renewBtn">Renouveler ma livraison</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 La Poste - Tous droits réservés | Ce site est une reproduction à des fins de démonstration.</p>
+    </footer>
+
+</body>
+</html>
